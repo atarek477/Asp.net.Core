@@ -1,0 +1,18 @@
+[
+  {
+    "ContainingType": "ecommerce.Controllers.Product_CategoryController",
+    "Method": "SearchByName",
+    "RelativePath": "api/product_category",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "name",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

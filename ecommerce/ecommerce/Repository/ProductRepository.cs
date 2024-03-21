@@ -51,5 +51,20 @@ namespace ecommerce.Repository
             await _dbContext.SaveChangesAsync();
             return product;
         }
+
+        public async Task<Product> UpdateProduct(int id ,ProductDto productDto)
+        {
+            var product = await _dbContext.Product.FirstOrDefaultAsync(x=>x.id==id);
+
+            if (product == null) { return null;}
+
+            product.name=productDto.name;
+            await _dbContext.SaveChangesAsync();    
+            return product;
+
+
+
+
+        }
     }
 }

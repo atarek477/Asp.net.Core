@@ -11,6 +11,8 @@ namespace ecommerce.Interfaces
         Task<List<Product>> GetAllProduct();
         Task<Product> GetById(int id);  
         Task<Product>CreateProduct(ProductDto product);
+        Task<Product> UpdateProduct(int id,ProductDto product);
+
         Task<Product> DeleteProduct(int id);
 
 

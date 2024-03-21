@@ -46,11 +46,25 @@ namespace ecommerce.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> CreateProduct([FromBody]ProductDto productDto)
+        public async Task<IActionResult> Create([FromBody]ProductDto productDto)
         {
 
             var product = await _productRepository.CreateProduct(productDto);
           
+            return Ok(product.ToProductDto());
+
+
+        }
+
+
+        [HttpPut]
+        [Route("{id:int}")]
+        public async Task<IActionResult> Update([FromRoute] int id, [FromBody]ProductDto productDto)
+        {
+
+            var product = await _productRepository.UpdateProduct(id,productDto);
+            if (product == null) { return BadRequest("there is no product with this id "); }
+
             return Ok(product.ToProductDto());
 
 

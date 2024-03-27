@@ -31,6 +31,11 @@ namespace ecommerce.Repository
         public async Task<List<Product>> GetAllProduct()
         {
             var products= await _dbContext.Product.ToListAsync();
+            var product =  _dbContext.Product;
+            foreach (var item in product)
+            {
+                Console.WriteLine(item.id+" "+item.name);
+            }
             if(products.Count == 0) { return null; }
 
             return products;
@@ -39,7 +44,7 @@ namespace ecommerce.Repository
  
         public async Task<Product> GetById(int id)
         {
-            var product = await _dbContext.Product.FindAsync(id);
+            var product = await _dbContext.Product.FirstOrDefaultAsync(x => x.id == id);
             if (product == null) { return null; }
             return product;
         }
